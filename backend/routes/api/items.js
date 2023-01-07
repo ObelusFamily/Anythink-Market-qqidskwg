@@ -79,6 +79,7 @@ router.get("/", auth.optional, function(req, res, next) {
         Item.find(query)
           .limit(Number(limit))
           .skip(Number(offset))
+          .find({ title: req.query.title })
           .sort({ createdAt: "desc" })
           .exec(),
         Item.count(query).exec(),
