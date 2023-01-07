@@ -54,7 +54,7 @@ router.get("/", auth.optional, function(req, res, next) {
   }
 
   if (typeof req.query.title !== "undefined") {
-    query.title = { $in: [req.query.title] };
+    query.title = { $in: req.query.title };
   }
 
   Promise.all([
@@ -79,7 +79,6 @@ router.get("/", auth.optional, function(req, res, next) {
         Item.find(query)
           .limit(Number(limit))
           .skip(Number(offset))
-          .find({ title: req.query.title })
           .sort({ createdAt: "desc" })
           .exec(),
         Item.count(query).exec(),
