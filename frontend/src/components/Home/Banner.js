@@ -10,11 +10,10 @@ const Banner = (props) => {
         <div>
           <span>A place to </span>
           <span id="get-part">get</span>
-          <div id="search-box">
             <div className="container p-4 text-center ">
               <input 
                 type="input" 
-                id="item-search" 
+                id="search-box" 
                 name="q" 
                 incremental 
                 minlength="3" 
@@ -31,7 +30,6 @@ const Banner = (props) => {
                   }
                 }} />
             </div>
-          </div>
           <span> the cool stuff.</span>
         </div>
       </div>
