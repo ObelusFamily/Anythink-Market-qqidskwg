@@ -27,17 +27,21 @@ const Banner = (props) => {
           <div id="search-box">
             <div className="container p-4 text-center ">
               <input 
-                type="search" 
+                type="input" 
                 id="item-search" 
                 name="q" 
                 incremental 
                 minlength="3" 
                 placeholder="What is that you truly desire?" 
                 size="30" 
-                onChange={() => {
-                  const title = document.getElementById("item-search").value;
-                  if (title.length() > 3) {
-                    filteredItems = agent.Items.byTitle(title);
+                onChange={({ target }) => {
+                  const title = target.value;
+                  if (title.length() > 2) {
+                    props.onSearch(
+                      title,
+                      (page) => agent.Items.byTitle(title, page),
+                      agent.Items.byTitle(title)
+                    );
                   }
                 }} />
             </div>

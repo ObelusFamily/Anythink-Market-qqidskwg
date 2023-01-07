@@ -40,8 +40,11 @@ const reducer = (state = {}, action) => {
     case APPLY_SEARCH_FILTER:
       return {
         ...state,
+        pager: action.pager,
         items: action.payload.items,
         itemsCount: action.payload.itemsCount,
+        tab: null,
+        tag: action.tag,
         currentPage: 0,
       };
     case APPLY_TAG_FILTER:
