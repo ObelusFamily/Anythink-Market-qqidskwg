@@ -2,20 +2,6 @@ import React from "react";
 import agent from "../../agent";
 import logo from "../../imgs/logo.png";
 
-let filteredItems = null;
-
-const ListFilteredItems = () => {
-  if (filteredItems !== null) {
-    filteredItems.map((el) => {
-      return (
-        <span>
-          {el}
-        </span>
-      );
-    })
-  }
-}
-
 const Banner = (props) => {
   return (
     <div className="banner text-white">
@@ -40,7 +26,7 @@ const Banner = (props) => {
                     props.onSearch(
                       title,
                       (page) => agent.Items.byTitle(title, page),
-                      agent.Items.byTitle(title)
+                      agent.Items.byTitle(title),
                     );
                   }
                 }} />
@@ -48,7 +34,6 @@ const Banner = (props) => {
           </div>
           <span> the cool stuff.</span>
         </div>
-      <ListFilteredItems />
       </div>
     </div>
   );
