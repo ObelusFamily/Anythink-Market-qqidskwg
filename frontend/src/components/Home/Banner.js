@@ -15,13 +15,12 @@ const Banner = (props) => {
                 type="input" 
                 id="search-box" 
                 name="q" 
-                incremental 
-                minlength="3" 
+                incremental="true"
                 placeholder="What is that you truly desire?" 
                 size="30" 
                 onChange={({ target }) => {
                   const title = target.value;
-                  if (title.length() > 2) {
+                  if (title.length > 2) {
                     props.onSearch(
                       title,
                       (page) => agent.Items.byTitle(title, page),

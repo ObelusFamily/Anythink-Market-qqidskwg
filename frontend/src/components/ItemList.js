@@ -11,7 +11,7 @@ const ItemList = (props) => {
     if (props.title) {
       return (
         <div id="empty" className="py-4 no-items">
-          No items found for "{props.title}"
+          No items found for "{props.title}".
         </div>
       );
     } else {
